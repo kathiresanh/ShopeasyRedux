@@ -1,0 +1,44 @@
+#page1{
+
+   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+ 
+}
+
+
+#topbar{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
+
+
+  }
+
+/* #page2{
+ 
+
+
+} */
+
+#cards{
+
+  margin: 5px;
+  
+ 
+}
+#table{
+  width: 100%;
+  border: 1px solid black;
+}
+
+body {
+   padding-top: 90px;
+   }
+
+  #card-data{
+    height: 390px;
+   
+  }
