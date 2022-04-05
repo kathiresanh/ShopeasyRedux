@@ -22,11 +22,11 @@ export default function Cards(props) {
     dispatch(addtocart(element))
     setTimeout(()=>{
       dispatch(updateCart(cart))
-    },1000)
+    },2000)
 
     setTimeout(()=> {
       dispatch(updateUserData())
-  },2000)
+  },3000)
   
     
     }
