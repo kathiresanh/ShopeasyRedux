@@ -45,6 +45,7 @@ export const login = (values)=>{
               dispatch(isloading())
           await axios.post("https://shopeasyend.herokuapp.com/login",values).then(function (response) {
             localStorage.setItem("token",response.data.tokens)
+            localStorage.setItem("email",response.data.email)
               let userdata =  JSON.stringify(response.data)
               localStorage.setItem("userdata",userdata)
               dispatch(adduserdata(userdata))
@@ -128,7 +129,7 @@ export const updateCart = (values) => {
         
         try {
         
-           axios.put(`https://shopeasyend.herokuapp.com/updatecart/${userdatas.email}`,values).then(function(response){
+           axios.put(`https://shopeasyend.herokuapp.com/updatecart/${window.localStorage.getItem("email")}`,values).then(function(response){
               console.log(response.data)
              
            })
@@ -145,8 +146,8 @@ export const updateUserData = () =>{
     return async (dispatch) =>{
          const getUserData = async ()=>{
              try {
-                 axios.get(`https://shopeasyend.herokuapp.com/getuserdata/update/${userdatas.email}`).then(function(response){
-                     console.log(response.data)
+                 axios.get(`https://shopeasyend.herokuapp.com/getuserdata/update/${window.localStorage.getItem("email")}`).then(function(response){
+                
                      let userdata =  JSON.stringify(response.data)
                      localStorage.setItem("userdata",userdata)
                     
@@ -168,7 +169,7 @@ export const sendDataToCart = (values) => {
            
            try {
               
-              axios.put(`https://shopeasyend.herokuapp.com/updatecart/${userdatas.email}`,values).then(function(response){
+              axios.put(`https://shopeasyend.herokuapp.com/updatecart/${window.localStorage.getItem("email")}`,values).then(function(response){
                  console.log(response.data)
                   
               })
@@ -266,7 +267,7 @@ export const updateOrders =async (item,dispatch) => {
    
             try {
                 dispatch(addtoOrders(item))
-         await  axios.put(`https://shopeasyend.herokuapp.com/addtoorders/${userdatas.email}`,item).then(function(response){
+         await  axios.put(`https://shopeasyend.herokuapp.com/addtoorders/${window.localStorage.getItem("email")}`,item).then(function(response){
                console.log(response.data)
                dispatch(deleteCartItem(item))
             })
