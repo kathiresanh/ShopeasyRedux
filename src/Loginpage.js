@@ -82,9 +82,10 @@ export default function Loginpage(){
              <div className="d-flex justify-content-end p-2">
       <Button variant="text" onClick={()=>{dispatch(openRegister())}}>New user?</Button>
        <Button size="small" onClick={()=>{dispatch(openForgot())}}>Forgot password</Button>
+<div className="d-flex justify-content-end p-2"><button className="btn btn-primary" onClick={()=>{setlogin()}}>Credentials</button></div>
        </div>
 
-<div className="d-flex justify-content-end p-2"><button className="btn btn-primary" onClick={()=>{setlogin()}}>Credentials</button></div>
+
         
     </Box>
   
